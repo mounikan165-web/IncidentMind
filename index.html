@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IncidentMind</title>
+    <link rel="stylesheet" href="/frontend/style.css">
+</head>
+<body>
+    <main class="container">
+        <header>
+            <div>
+                <p class="eyebrow">ENGINEERING OPERATIONS</p>
+                <h1>IncidentMind</h1>
+                <p class="subtitle">Incident history that stays useful.</p>
+            </div>
+            <span class="status">● Local</span>
+        </header>
+
+        <section class="grid">
+            <div class="card">
+                <h2>Record incident</h2>
+                <p class="muted">Save what the team learned for the next incident.</p>
+                <textarea id="incident" placeholder="Example:
+Payment API returned 503 after deployment v2.4.1.
+Root cause: incorrect connection pool configuration.
+Resolution: reverted the configuration and restarted the service."></textarea>
+                <button onclick="rememberIncident()">Save incident</button>
+                <p id="rememberResult" class="result"></p>
+            </div>
+
+            <div class="card">
+                <h2>Ask incident history</h2>
+                <p class="muted">Check whether the team has seen something similar.</p>
+                <textarea id="question" placeholder="Have we seen a similar Payment API 503 incident before?"></textarea>
+                <button onclick="askIncident()">Search memory</button>
+                <div id="answer" class="answer">No search yet.</div>
+            </div>
+        </section>
+
+        <section class="card example">
+            <div>
+                <p class="eyebrow">HOW IT WORKS</p>
+                <h2>Remember → Investigate → Reuse</h2>
+                <p class="muted">
+                    IncidentMind stores operational knowledge in Hindsight and
+                    uses that history when an engineer investigates a new issue.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <script src="/frontend/app.js"></script>
+</body>
+</html>
